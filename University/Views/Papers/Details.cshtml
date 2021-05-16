@@ -1,0 +1,122 @@
+﻿@model University.Areas.Identity.Data.Paper
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+
+
+
+<h1>Details</h1>
+
+<div>
+    <h4>Paper</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Firstname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copy)
+        </dd>
+        <dt class="col-sm-2" >
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10" style="color:red;">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            <b>Paper Location : </b>
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.description 
+        </dd>
+
+    </dl>
+</div>
+
+
+
+
+
+
+
+
+<div  style="width:600px; height:700px">
+    <img id="myImage" src="/img/ua.png" >
+</div>
+
+<script type="text/javascript">
+
+
+        function DisplayLocation() {
+
+            var name ='@ViewBag.path';
+
+            if (name == "genie") {
+
+                document.getElementById('myImage').src = '/img/genie.png';
+            }
+
+            else
+                if ( name == "business")
+                    document.getElementById('myImage').src = '/img/business.png';
+                else
+                    if (name =="eps")
+                        document.getElementById('myImage').src = '/img/eps.png'
+                    else 
+                        document.getElementById('myImage').src = '/img/sec.png'
+        }
+
+
+
+            window.onload = DisplayLocation;
+</script>
+
+
+
+     
+
+
+    <div>
+
+        <a asp-action="Index">Back to List</a>
+    </div>

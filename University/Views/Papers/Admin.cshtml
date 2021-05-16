@@ -1,0 +1,106 @@
+﻿@model IEnumerable<University.Areas.Identity.Data.Paper>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using University.Areas.Identity.Data
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+<h3>@ViewBag.ErrorMessage</h3>
+<div class="jumbotron">
+    <h1>UA UNIVERSITY</h1>
+    <p class="lead">ADMINISTRATION </p>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Copy)
+            </th>
+            <th style="color:red;">
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Copy)
+                </td>
+                <td style="color:red;">
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td  onclick="window.location.top.reload();">
+
+
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a> |
+                   
+                    <a asp-action="Complete" asp-route-id="@item.id">Complete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="ViewAll"><img src="/img/profil.jpg" alt="User" style="width:200px;height:200px;"></a>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="ViewAll"><h3>View All Paper</h3></a>
+        </p>
+    </div>
+    <div class="col-md-4">
+
+        <a class="nav-link text-dark" asp-area="" asp-controller="StudentDatas" asp-action="Index"><img src="/img/profil.png" alt="Manage" style="width:200px;height:230px;"></a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="Index"><h3>Manage Students Data</h3></a>
+    </div>
+
+
+</div>

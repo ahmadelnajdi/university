@@ -1,0 +1,52 @@
+﻿@model University.Areas.Identity.Data.StudentData
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>StudentData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Studentid" class="control-label"></label>
+                <select asp-for="Studentid" class="form-control" asp-items="@(new SelectList(ViewBag.Lists,"Student ID"))"></select>
+                <span asp-validation-for="Studentid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faculty" class="control-label"></label>
+                <select asp-for="Faculty" class="form-control">
+                    <option value="genie">genie</option>
+                    <option value="business">business</option>
+                    <option value="eps">eps</option>
+                </select>
+                <span asp-validation-for="Faculty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <input asp-for="Course" class="form-control" />
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

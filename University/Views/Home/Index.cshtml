@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using University.Areas.Identity.Data
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+<h3>@ViewBag.ErrorMessage</h3>
+<div class="jumbotron">
+    <h1>UA UNIVERSITY</h1>
+    <p class="lead">WELCOME! </p>
+
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="Create"><img src="/img/app.jpg" alt="APPOITMENT" style="width:200px;height:200px;"></a>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="Create"><h3>Create Your Paper</h3></a>
+        </p>
+    </div>
+    <div class="col-md-4">
+
+        <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="Index"><img src="/img/profil.jpg" alt="Manage" style="width:200px;height:230px;"></a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Papers" asp-action="Index"><h3>Manage your Papers</h3></a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="mailto:ahmadelnajdi@gmail.com"><img src="/img/mail.png" alt="APPOITMENT" style="width:240px;height:250px;"></a>
+
+        <a href="mailto:ahmadelnajdi@gmail.com"><h3>Contact Us ^_^</h3></a>
+
+
+    </div>
+</div>
